@@ -27,8 +27,8 @@ class RegisterModel extends Model
             'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
             'phoneno' => [self::RULE_REQUIRED, self::RULE_PHONENO],
             'gender' => [self::RULE_REQUIRED],
-            'password' => [self::RULE_REQUIRED],
-            'passwordConfirm' => [self::RULE_REQUIRED, [self::]]
+            'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8], [self::RULE_MAX, 'max' => 64]],
+            'passwordConfirm' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']],
 
         ];
     }
