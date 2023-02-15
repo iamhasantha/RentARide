@@ -1,3 +1,160 @@
-<h1>Home Page</h1>
+<div class="home-search">
+    <form role="search" id="form">
+        <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
+        <button>
+            <i class="fi fi-br-search"></i>
+        </button>
+    </form>
+</div>
 
-<h3>Welcome to <?= $name ?></h3>
+
+<!-- Cards -->
+
+<div class="cards-container">
+    <div class="cards scooter">
+        <p>Looking for a</p>
+        <h1>Scooter</h1>
+        <img src="assets/img/mainHome/scooter.png" alt="scooter">
+    </div>
+
+    <div class="cards moto">
+        <p>Looking for a</p>
+        <h1>Motorcycle</h1>
+        <img src="assets/img/mainHome/motorcycle.png" alt="motorbikes">
+    </div>
+
+    <div class="cards car">
+        <p>Looking for a</p>
+        <h1>Car</h1>
+        <img src="assets/img/mainHome/sedan.png" alt="cars">
+    </div>
+
+    <div class="cards van">
+        <p>Looking for a</p>
+        <h1>Van</h1>
+        <img src="assets/img/mainHome/van.png" alt="vans">
+    </div>
+</div>
+
+<!-- why rent ride -->
+<div class="separator">Why Rent A Ride</div>
+
+<div class="info-cont">
+    <div class="info-box">
+        <div class="info">
+            <div class="info-logo">
+                <i class='bx bxs-heart bx-md' ></i>
+            </div>
+            <div class="info-text">
+                <h4>1250</h4>
+                <p>Customers' Satisfied</p>
+            </div>
+
+
+        </div>
+        <div class="info">
+            <div class="info-logo">
+                <i class='bx bx-message-dots bx-md'></i>
+            </div>
+            <div class="info-text">
+                <h4>24 Hours</h4>
+                <p>Customers Assistence</p>
+            </div>
+
+
+        </div>
+        <div class="info">
+            <div class="info-logo">
+                <i class='bx bx-donate-heart bx-md' ></i>
+            </div>
+            <div class="info-text">
+                <h4>Flexible</h4>
+                <p>Customers Satisfied</p>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Top Rentals -->
+<div class="separator">Top Rentals</div>
+
+<div class="table-container">
+    <div class="table">
+        <div class="table-header">
+            <div class="header__item"><a id="name" class="filter__link" href="#"></a></div>
+            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vehicle</a></div>
+            <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Ratings</a></div>
+            <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Location</a></div>
+            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Owner</a></div>
+        </div>
+        <div class="table-content">
+            <div class="table-row">
+                <div class="table-data"><img src="assets/img/mainHome/scooter.png" width="56px"></div>
+                <div class="table-data">Dio Scooter</div>
+                <div class="table-data">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <div class="table-data">Galle</div>
+                <div class="table-data">RR</div>
+            </div>
+            <div class="table-row">
+                <div class="table-data"><img src="assets/img/mainHome/scooter.png" width="56px"></div>
+                <div class="table-data">Wego</div>
+                <div class="table-data">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="table-data">Colombo</div>
+                <div class="table-data">Sunil</div>
+            </div>
+            <div class="table-row">
+                <div class="table-data"><img src="assets/img/mainHome/scooter.png" width="56px"></div>
+                <div class="table-data">Scooty pep</div>
+                <div class="table-data">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="table-data">Katunayake</div>
+                <div class="table-data">Kasun</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- How it works -->
+<div class="separator">How it works</div>
+
+<div class="hiw-cont">
+
+    <div class="ico-cont">
+        <img src="assets/img/mainHome/map.png" alt="map">
+        <img src="assets/img/mainHome/map.png" alt="map">
+        <img src="assets/img/mainHome/map.png" alt="map">
+
+    </div>
+
+    <button class="button-28" role="button">
+        <i class='bx bx-info-circle bx-xm'></i>
+        Learn more
+    </button>
+</div>
+
+<!-- want to -->
+<div class="fav-cards">
+    <div class="fav1"></div>
+    <div class="fav2">driver</div>
+</div>

@@ -1,0 +1,19 @@
+@import url("components/registerForm.css");
+
+@import url("components/flashMessages.css");
+@import url("components/nav.css");
+@import url("components/sidebar.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-color);
+}

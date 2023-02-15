@@ -1,1 +1,57 @@
 @import url("components/nav.css");
+@import url("components/sidebar.css");
+/*@import url("layout/profile.css");*/
+@import url("layout/cus_home/profile.css");
+
+
+@import url(layout/cus_home/table.css);
+@import url(components/search.css);
+@import url(layout/cusVehicleInfo/details.css);
+@import url(layout/cusBooking/booking.css);
+@import url(layout/cusBooking/mindetails.css);
+
+@import url(layout/cusBookingTable/thisStyle.css);
+
+
+
+
+@import url("components/registerForm.css");
+
+@import url("components/flashMessages.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-color);
+}
+
+.banner-msg {
+    margin: 50px;
+    padding: 15px;
+    width: 90%;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.banner-msg h1{
+    font-size: medium;
+    font-weight: 600;
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.yellow {
+    color: #FAB84C;
+}

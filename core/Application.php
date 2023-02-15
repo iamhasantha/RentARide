@@ -2,15 +2,30 @@
 
 namespace app\core;
 
+
+
+use app\models\Customer;
+
 class Application
 {
     public static string $ROOT_DIR;
+
+    public string $layout = 'main';
+    public string $customerClass;
     public Router $router;
     public Request $request;
     public Response $response;
+    public Session $session;
+    public Database $db;
+    public ?dbModel $customer;
 
     public static Application $app;
-    public Controller $controller;
+    public ?Controller $controller = null;
+
+    public static function isGuest(): bool
+    {
+        return !self::$app->customer;
+    }
 
     /**
      * @return Controller
@@ -28,19 +43,58 @@ class Application
         $this->controller = $controller;
     }
 
-    public function __construct($rootPath)
+    public function __construct($rootPath, array $config)
     {
+        $this->customerClass = $config['customerClass'];
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
         $this->request = new Request();
         $this->response = new Response();
+        $this->session = new Session();
         $this->router = new Router($this->request,$this->response);
+
+        $this->db = new Database($config['db']);
+
+        $primaryValue = $this->session->get('customer');
+        if ($primaryValue) {
+            $primaryKey = $this->customerClass::primaryKey();
+            $this->customer = $this->customerClass::findOne([$primaryKey => $primaryValue ]);
+        } else {
+            $this->customer = null;
+        }
+
+
 
     }
 
     public function run()
     {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        }catch (\Exception $e) {
+            $this->response->setStatusCode($e->getCode());
+            echo $this->router->renderView('_error', [
+                'exception' => $e
+            ]);
+        }
+
+    }
+
+    public function login(dbModel $customer): bool
+    {
+        $this->customer = $customer;
+        $primaryKey = $customer->primaryKey();
+        $primaryValue = $customer->{$primaryKey};
+        $this->session->set('customer', $primaryValue);
+
+        return true;
+
+    }
+
+    public function logout()
+    {
+        $this->customer = null;
+        $this->session->remove('customer');
     }
 
 }

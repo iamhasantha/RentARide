@@ -2,41 +2,58 @@
 
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\models\RegisterModel;
+use app\core\Response;
+use app\models\LoginForm;
+use app\models\Customer;
 
 class AuthController extends Controller
 {
-    public function login()
+    public function login(Request $request, Response $response)
     {
+        $cuslogin = new LoginForm();
+        if ($request->isPost()){
+            $cuslogin->loadData($request->getBody());
+            if ($cuslogin->validate() && $cuslogin->login()) {
+                $response->redirect('/home');
+                return;
+            }
+        }
         $this->setLayout('auth');
-        return $this->render('login');
+        return $this->render('login', [
+            'model' => $cuslogin
+        ]);
     }
 
     public function register(Request $request)
     {
-        $registerModel = new RegisterModel();
+        $customer = new Customer();
         if ($request->isPost()){
 
-            $registerModel->loadData($request->getBody());
+            $customer->loadData($request->getBody());
 
-            if ($registerModel->validate() && $registerModel->register()){
-                return 'Success';
+            if ($customer->validate() && $customer->save()){
+                Application::$app->session->setFlash('success', 'Registration Successfully!');
+                Application::$app->response->redirect('/login');
+                exit();
             }
 
-            echo '<pre>';
-            var_dump($registerModel->errors);
-            echo '</pre>';
-            exit();
-
+            $this->setLayout('auth2');
             return $this->render('register', [
-                'model' => $registerModel
+                'model' => $customer
             ]);
         }
-        $this->setLayout('auth');
+        $this->setLayout('auth2');
         return $this->render('register', [
-            'model' => $registerModel
+            'model' => $customer
         ]);
+    }
+
+    public function logout(Request $request, Response $response)
+    {
+        Application::$app->logout();
+        $response->redirect('/');
     }
 }

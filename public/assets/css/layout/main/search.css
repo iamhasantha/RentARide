@@ -1,0 +1,39 @@
+
+.home-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#form {
+    background-color: #ffffff;
+    width: 380px;
+    height: 37px;
+    border-radius: 40px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+.home-search input {
+    all: unset;
+    font: 16px system-ui;
+    color: rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.home-search ::placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 0.7;
+}
+
+.home-search button {
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}

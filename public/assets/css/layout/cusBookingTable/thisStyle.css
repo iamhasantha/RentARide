@@ -1,0 +1,88 @@
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 16px;
+}
+
+th {
+  background-color: #ddd;
+  padding: 15px;
+  font-weight: bold;
+  color: #262626;
+}
+
+td {
+  color: #555;
+}
+
+.status {
+  cursor: pointer;
+  color: rgb(24, 24, 24);
+}
+
+.pending {
+  background-color: yellow;
+}
+
+.ongoing {
+  background-color: lightgreen;
+}
+
+.completed {
+  background-color: lightgray;
+}
+
+@media only screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  td {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-left: 50%;
+  }
+  
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  
+  td:nth-of-type(1):before {
+    content: "Booking ID";
+  }
+  
+  td:nth-of-type(2):before {
+    content: "Customer Name";
+  }
+  
+  td:nth-of-type(3):before {
+    content: "Vehicle";
+  }
+  
+  td:nth-of-type(4):before {
+    content: "Status";
+  }
+}

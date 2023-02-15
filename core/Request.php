@@ -31,7 +31,7 @@ class Request extends Controller
         return $this->method() === 'post';
     }
 
-    public function getBody()
+    public function getBody(): array
     {
         $body = [];
         if ($this->method() === 'get'){

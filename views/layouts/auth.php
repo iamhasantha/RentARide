@@ -1,3 +1,7 @@
+<?php
+    use app\core\Application;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
 
     <title>Rent A Ride</title>
 
-
+<!--    <link rel="stylesheet" href="assets/css/components/style.css">-->
     <link rel="stylesheet" href="assets/css/main.css">
 
 </head>
@@ -34,9 +38,15 @@
         </div>
     </nav>
 
+    <?php if (Application::$app->session->getFlash('success')):?>
+        <div class="flash-message success">
+            <?= Application::$app->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
 
     {{content}}
 
 </body>
+    <script src="/assets/javascript/components/cus-RegForm.js"></script>
 
 </html>

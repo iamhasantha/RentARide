@@ -14,6 +14,8 @@ class SiteController extends Controller
             'name' => "Rent A Ride"
         ];
 
+        $this->setLayout('main');
+
         return $this->render('home', $params);
     }
     public function contact(): string
@@ -23,10 +25,6 @@ class SiteController extends Controller
     public function handleContact(Request $request): string
     {
         $body = $request->getBody();
-        echo '<pre>';
-        var_dump($body);
-        echo '</pre>';
-        exit();
         return 'Handling submitted data';
     }
 }
