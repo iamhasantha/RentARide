@@ -194,3 +194,17 @@
     height: 50%;
     border-radius: 15px;
   }
+
+  .vehicle-description {
+      display: flex;
+      margin: 2%;
+      justify-content: space-between;
+      align-items: flex-start;
+  }
+
+    .vehicle-description > p {
+        padding: 10px;
+
+        text-align: left;
+        text-justify: inter-word;
+    }

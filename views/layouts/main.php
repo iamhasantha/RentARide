@@ -39,7 +39,11 @@ use app\core\Application;
                 <li class="list-item 1"><a href="/login">Sign in</a></li>
                 <li class="list-item 2"><a href="/register">Register</a></li>
             <?php else: ?>
-            <li class="list-item 1"><a href="/logout">Log out</a></li>
+                <div class="profile-cont">
+                    <span class="profile-name"><?= Application::$app->customer->displayName(); ?></span>
+                    <div class="img-cont"><img src="<?= Application::$app->customer->userprofile('profile_pic')?>" class="profile-image"></div>
+                </div>
+            <li class="list-item 1"><a href="/logout"><i class='bx bx-log-in-circle bx-sm'></i></a></li>
             <?php endif; ?>
 
         </ul>

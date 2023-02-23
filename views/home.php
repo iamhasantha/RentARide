@@ -1,3 +1,5 @@
+
+
 <div class="home-search">
     <form role="search" id="form">
         <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">

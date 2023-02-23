@@ -18,6 +18,9 @@ class Application
     public Session $session;
     public Database $db;
     public ?dbModel $customer;
+    public ?dbModel $vehicle;
+    public ?dbModel $VehRates;
+    public ?dbModel $vehInfo;
 
     public static Application $app;
     public ?Controller $controller = null;

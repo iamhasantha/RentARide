@@ -1,12 +1,12 @@
-.assign-driver {
+.booking-section {
     margin-top: 20px;
 }
-.need-driver {
+.sub-section {
     background-color: #ffffff;
     border-radius: 10px;
     
     padding: 20px;
-    width: 90%;
+    width: 100%;
     /*margin: 0 30px;*/
     transition: 0.4s;    
 }
@@ -23,7 +23,7 @@
     background-color: #f4f4f4;
     border-radius: 0 0 10px 10px;
     padding: 20px;
-    width: 90%;
+    width: 100%;
     /*margin: 0 30px;*/
     transition: 0.4s;
 }
@@ -141,17 +141,19 @@
   }
 
   #send-request {
-    padding: 6px 12px;
-    margin-top: 20px;
-    float: right;
-    margin-right: 110px;
-    border: none;
-    border-radius: 15px;
-    font-size: 18px;
-    font-weight: 400;
-    background-color: #FAB84C;
-    cursor: pointer;
-    transition: background-color 0.2s ease-out;
+      position: relative;
+      left: 88%;
+
+      padding: 6px 12px;
+      margin-top: 20px;
+      margin-right: 110px;
+      border: none;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: 400;
+      background-color: #FAB84C;
+      cursor: pointer;
+      transition: background-color 0.2s ease-out;
   }
 
   #send-request:hover {
@@ -173,6 +175,27 @@
     font-weight: bold;
     color: #ff5900;
 }
+
+#paymentMethod {
+    display: block;
+    width: 12%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid #7e7e7e;
+    border-radius: 0.25rem;
+    background-color: #f1f1f1;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+@media (min-width: 768px) {
+    .paymentMethod {
+        width: auto;
+    }
+}
+
 
 
 

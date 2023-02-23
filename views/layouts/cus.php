@@ -10,11 +10,14 @@ use app\core\Application; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Ride</title>
 
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/layout/style.css">
+    <link rel="stylesheet" href="assets/css/layout/customer.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout/cus_home/table.css">
 
@@ -96,7 +99,7 @@ use app\core\Application; ?>
             <li class="list-item 2"><a href="#">Register</a></li>       -->
             <div class="profile-cont">
                 <span class="profile-name"><?= Application::$app->customer->displayName(); ?></span>
-                <div class="img-cont"><img src="assets/img/profile.png" class="profile-image"></div>
+                <div class="img-cont"><img src="<?= Application::$app->customer->userprofile('profile_pic')?>" class="profile-image"></div>
             </div>
 
         </ul>
@@ -106,6 +109,11 @@ use app\core\Application; ?>
             <div class="bar3"></div>
         </div>
     </nav>
+    <?php if (Application::$app->session->getFlash('profileUpdate')):?>
+        <div class="flash-message success">
+            <?= Application::$app->session->getFlash('profileUpdate') ?>
+        </div>
+    <?php endif; ?>
 
     <div class="banner-msg">
         <h1>FAST AND EASY WAY TO <span class="bold yellow">RENT A VEHICLE</span></h1>

@@ -28,6 +28,22 @@
                         <div class="input-wrap">
 
                             <input
+                                    name="nic"
+                                    type="text"
+                                    minlength="10"
+                                    maxlength="12"
+                                    class="input-field<?= $model->hasError('firstname') ? ' invalid' : ''?>"
+                                    autocomplete="off"
+                                    value="<?= $model->thereIsError() ? $model->nic : ''?>"
+
+                            />
+                            <label>NIC</label>
+                            <span class="form-error"><?= $model->getFirstError('nic') ?></span>
+                        </div>
+
+                        <div class="input-wrap">
+
+                            <input
                                     name="firstname"
                                     type="text"
                                     minlength="4"
@@ -94,6 +110,21 @@
 
                         <div class="input-wrap">
                             <input
+                                    name="address"
+                                    type="text"
+                                    class="input-field<?= $model->hasError('address') ? ' invalid' : ''?>"
+                                    autocomplete="off"
+                                    value=""
+
+                            />
+                            <label>Address</label>
+                            <span class="form-error"> <?= $model->getFirstError('address') ?></span>
+                        </div>
+
+
+
+                        <div class="input-wrap">
+                            <input
                                     name="password"
                                     type="password"
                                     minlength="4"
@@ -139,92 +170,3 @@
         </div>
     </div>
 </main>
-
-<!--<div class="wrapper">-->
-<!--    <div class="registration_form">-->
-<!--        <!-- Title-->-->
-<!--        <div class="title">-->
-<!--            Create an account-->
-<!--        </div>-->
-<!--<!--        Form-->-->
-<!--        <form action="" method="post">-->
-<!--            <div class="form_wrap">-->
-<!--                <div class="input_grp">-->
-<!--<!--                    <!–- Frist name input Place -–>-->-->
-<!--                    <div class="input_wrap">-->
-<!--                        <label for="fistname">First Name</label>-->
-<!--                        <input type="text" name="firstname" value="--><?php //= $model->thereIsError() ? $model->firstname : ''?><!--" class="--><?php //= $model->hasError('firstname') ? ' invalid' : ''?><!--">-->
-<!---->
-<!--                        <div class="form-errors">-->
-<!--                            --><?php //= $model->getFirstError('firstname') ?>
-<!--                        </div>-->
-<!--                    </div>-->
-<!--<!--                    <!– Last Name input place –>-->-->
-<!--                    <div class="input_wrap">-->
-<!--                        <label for="lastname">Last Name</label>-->
-<!--                        <input type="text" id="lname" name="lastname" value="--><?php //= $model->thereIsError() ? $model->lastname : ''?><!--" class="--><?php //= $model->hasError('lastname') ? ' invalid' : ''?><!--">-->
-<!--                        <div class="form-errors">-->
-<!--                            --><?php //= $model->getFirstError('lastname') ?>
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--<!--                Email Id input Place-->-->
-<!--                <div class="input_wrap">-->
-<!--                    <label for="email">Email Address</label>-->
-<!--                    <input type="text" id="email" name="email" value="--><?php //= $model->thereIsError() ? $model->email : ''?><!--" class="--><?php //= $model->hasError('email') ? ' invalid' : ''?><!--">-->
-<!--                    <div class="form-errors">-->
-<!--                        --><?php //= $model->getFirstError('email') ?>
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <!--                Phone no input Place-->-->
-<!--                <div class="input_wrap">-->
-<!--                    <label for="phoneno">Phone no</label>-->
-<!--                    <input type="text" id="phoneno" name="phoneno" value="--><?php //= $model->thereIsError() ? $model->phoneno : ''?><!--" class="--><?php //= $model->hasError('phoneno') ? ' invalid' : ''?><!--">-->
-<!--                    <div class="form-errors">-->
-<!--                        --><?php //= $model->getFirstError('phoneno') ?>
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <!-- Gender -->-->
-<!--                <div class="input_wrap">-->
-<!--                    <label id="gender">gender</label>-->
-<!--                    <select id="dropdown" name="gender" required>-->
-<!--                        <option disabled selected value>-->
-<!--                            ---Select Gender----->
-<!--                        </option>-->
-<!--                        <option value="female">-->
-<!--                            Female-->
-<!--                        </option>-->
-<!--                        <option value="male">-->
-<!--                            Male-->
-<!--                        </option>-->
-<!--                    </select>-->
-<!--                    <div class="form-errors">-->
-<!---->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="input_wrap">-->
-<!--                    <label for="password">Password</label>-->
-<!--                    <input type="password" id="password" name="password" class="--><?php //= $model->hasError('phoneno') ? ' invalid' : ''?><!--">-->
-<!--                    <div class="form-errors">-->
-<!--                        --><?php //= $model->getFirstError('password') ?>
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="input_wrap">-->
-<!--                    <label for="confirm_password">Confirm Password</label>-->
-<!--                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="--><?php //= $model->hasError('passwordConfirm') ? ' invalid' : ''?><!--">-->
-<!--                    <div class="form-errors">-->
-<!--                        --><?php //= $model->getFirstError('passwordConfirm') ?>
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <!– Submit button –>-->
-<!--                <div class="input_wrap">-->
-<!--                    <input type="submit" value= "Register No" class="submit_btn">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->

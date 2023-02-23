@@ -40,11 +40,16 @@ $app->router->get('/logout', [AuthController::class, 'logout']);
 
 $app->router->get('/home', [CustomerController::class, 'home']);
 
+$app->router->post('/upload', [SiteController::class, 'uploadImage']);
+
 $app->router->get('/profile', [CustomerController::class, 'profile']);
+$app->router->post('/profile', [CustomerController::class, 'profile']);
 
 $app->router->get('/VehicleBooking', [CustomerController::class, 'VehicleBooking']);
+$app->router->post('/VehicleBooking', [CustomerController::class, 'VehicleBooking']);
 
 $app->router->get('/VehicleInfo', [CustomerController::class, 'vehicleInfo']);
+$app->router->post('/VehicleInfo', [CustomerController::class, 'vehicleInfo']);
 
 $app->router->get('/VehicleBookingTable', [CustomerController::class, 'vehicleBookingTable']);
 

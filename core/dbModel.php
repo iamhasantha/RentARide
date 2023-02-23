@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\models\Customer;
+
 abstract class dbModel extends Model
 {
     abstract public static function tableName(): string;
@@ -12,7 +14,7 @@ abstract class dbModel extends Model
 
     public function save(): bool
     {
-        $tableName = (new \app\models\Customer)->tableName();
+        $tableName = (new Customer)->tableName();
         $attributes = $this->attributes();
         $params = array_map(fn($attr) => ":$attr", $attributes);
 
@@ -28,9 +30,39 @@ abstract class dbModel extends Model
 
     }
 
+    public function update($id, $Include=[], $Exclude = []): bool
+    {
+        $tableName = static::tableName();
+        $attributes = $this->attributes();
+        $params = array_map(fn($attr) => ":$attr", $attributes);
+
+        $demo = 'UPDATE ' . $tableName . ' SET ';
+        if (!empty($Include)) :
+            foreach ($Include as $attribute) {
+                $demo .= $attribute . '="' . $this->{$attribute} . '", ';
+            }
+        else :
+        foreach ($attributes as $attribute) {
+            if ($attribute == static::PrimaryKey()) {
+                continue;
+            }
+            if (in_array($attribute, $Exclude)) {
+                continue;
+            }
+            $demo .= $attribute . '="' . $this->{$attribute} . '", ';
+        }
+        endif;
+        $demo=substr($demo,0,-2);
+        $demo.=' WHERE '.static::PrimaryKey().'="'.$id.'"';
+        $statement=self::prepare($demo);
+        $statement->execute();
+        return true;
+
+    }
+
     public static function findOne($where)
     {
-        $tableName = (new \app\models\Customer)->tableName();
+        $tableName = static::tableName();
         $attributes = array_keys($where);
         $sql = implode("AND ", array_map(fn($attr) => "$attr = :$attr", $attributes));
         $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
@@ -41,6 +73,28 @@ abstract class dbModel extends Model
         $statement->execute();
         return $statement->fetchObject(static::class);
     }
+
+    public static function retrieveAll($where = [])
+    {
+        $tableName = static::tableName();
+        $statement = '';
+        if (empty($where)) {
+            $statement = self::prepare("SELECT * FROM $tableName");
+        } else {
+            $attributes = array_keys($where);
+            $sql = implode("AND ", array_map(fn($attr) => "$attr = :$attr", $attributes));
+            $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+            foreach ($where as $key => $item) {
+                $statement->bindValue(":$key", $item);
+            }
+        }
+
+        $statement->execute();
+        return $statement->fetchAll(\PDO::FETCH_CLASS, static::class);
+
+    }
+
+
 
 
     public static function prepare($sql)

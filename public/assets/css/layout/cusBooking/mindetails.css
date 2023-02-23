@@ -1,6 +1,7 @@
 .book-cont {
-  margin: 15px 50px !important;
-  width: 100%;
+  padding: 10px;
+  margin: 20px 0 20px 40px !important;
+  width: 92%;
   height: max-content;
 }
 
@@ -8,7 +9,7 @@
     background-color: #ffffff;
     border-radius: 10px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     padding: 15px 18px !important;
 
   }
@@ -195,3 +196,16 @@
     background: #393939;
     color: white;
   }
+
+.set-date-loc-min {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width: 125%;
+  border-radius: 15px;
+  padding: 5px 12px;
+  margin-top: 10px;
+  background: #393939;
+  color: white;
+}

@@ -1,9 +1,6 @@
 .table-container {
     max-width: 90%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-right: 25px;
-    margin-left: 50px;
+    margin: 50px 25px 50px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +34,8 @@
 }
 
 .table-data, .header__item {
+    display: flex;
+    align-items: center;
     flex: 1 1 20%;
     text-align: center;
 }
